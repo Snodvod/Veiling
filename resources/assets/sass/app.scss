@@ -1,0 +1,69 @@
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+$blue-text: #0a1e75;
+
+a {
+	text-decoration: none;
+}
+
+#header-strip {
+	background-color: #eaeaea;
+	height: 50px;
+}
+
+#header {
+	height: 50px;
+	&:before {
+		content: "";
+		background: #01a6a0;
+		width: 100%;
+		height: 4px;
+	}
+}
+
+#logo {
+	width: 103px;
+	height: 140px;
+	background: white;
+	box-shadow: 0 0 75px 15px rgba(1, 1, 1, 0.2);
+}
+
+.uppernav {
+	height: 50px;
+	line-height: 45px;
+	.nav-elements {
+		padding: 0 5px;
+		color: $blue-text;
+		border-right: 1px solid;
+
+		&#login {
+			border: none;
+		}
+	}
+	#loginform {
+		display: none;
+		div {
+			float: left;
+			margin-right: 10px;
+			margin-top: 5px;
+		}
+	}
+}
+
+.carousel {
+	.carousel-inner {
+		margin-top: 0;
+		.item {
+			img {
+				margin: 0 auto;
+				height: 554px;
+				overflow: hidden;
+			}
+		}
+	}
+}
+
+#work {
+	margin: 20px 0;
+}
+
