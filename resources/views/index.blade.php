@@ -60,4 +60,11 @@
 			<h3 class="text-center">Everybody happy</h3>
 		</div>
 	</div>
+
+	<div class="row" id="popular">
+		<div class="col-lg-6 col-lg-offset-3">
+			<h2 id="pophead" class="text-center">Most popular this week </h2>
+			<span id="expand" class="glyphicon glyphicon-expand"></span>
+		</div>
+	</div>
 @endsection
