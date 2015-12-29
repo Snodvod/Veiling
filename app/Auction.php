@@ -35,4 +35,9 @@ class Auction extends Model {
 		return $this->belongsToMany('App\Bidder');
 	}
 
+	public function style()
+	{
+		return $this->belongsTo('App\User');
+	}
+
 }

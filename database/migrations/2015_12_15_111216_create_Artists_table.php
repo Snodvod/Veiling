@@ -12,7 +12,6 @@ class CreateArtistsTable extends Migration {
 			$table->string('name');
 			$table->string('nationality');
 			$table->string('image');
-			$table->integer('artwork_id');
 			$table->timestamps();
 			$table->softDeletes();
 		});

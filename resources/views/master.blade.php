@@ -3,20 +3,20 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Art Auction</title>
-	<link rel="stylesheet" href="css/app.css">
+	<link rel="stylesheet" href="{{ asset('css/app.css') }}">
 	<link rel="shortcut icon" href="{{ asset('favicon.ico') }}" >
 </head>
 <body>
 	<div class="container-fluid">
 		<div id="header" class="row">
 			<div class="col-lg-1 col-lg-offset-2">
-				<img class="logo" src="img/logo.jpg">
+				<img class="logo" src="{{asset('img/logo.jpg') }}">
 			</div>
 			@if(Auth::check())
 			<div class="col-lg-2 uppernav">
-				<img src="img/menu.jpg" alt="watchlist">
+				<img src="{{ asset('img/menu.jpg') }}" alt="watchlist">
 				<a class="nav-elements" href="#">Watchlist</a>
-				<img src="img/user.jpg" alt="user">
+				<img src="{{ asset('img/user.jpg') }}" alt="user">
 				<a class="nav-elements" href="#">Profile</a>
 				<a class="nav-elements" id="logout" href="/auth/logout">Logout</a>
 			</div>
@@ -27,7 +27,7 @@
 			</div>
 			<div id="facebook" class="col-lg-1 uppernav">
 				Or use:
-				<a href="auth/facebook"><img width="30" height="30" src="img/facebook.png" alt="facebook"></a>
+				<a href="auth/facebook"><img width="30" height="30" src="{{ asset('img/facebook.png') }}" alt="facebook"></a>
 			</div>
 			@endif
 			<div id="loginform" class="col-lg-4 uppernav">
@@ -50,19 +50,83 @@
 		<div class="header-strip row">
 			<div class="col-lg-4">
 				<ul class="nav nav-tabs">
-					<li><a href="home">Home</a></li>
-					<li><a href="art">Art</a></li>
+					<li><a href="/home">Home</a></li>
+					<li><a href="/art">Art</a></li>
 					<li><a href="#">iSearch</a></li>
-					<li><a href="myactions">MyAuctions</a></li>
-					<li><a href="mybids">MyBids</a></li>
-					<li><a href="contact">Contact</a></li>
+					@if(Auth::check())
+					<li><a href="/auctions/{{ Auth::User()->id }}">MyAuctions</a></li>
+					<li><a href="/mybids/{{ Auth::User()->id }}">MyBids</a></li>
+					@else
+					<li><a href="#">MyAuctions</a></li>
+					<li><a href="#">MyBids</a></li>
+					@endif
+					<li><a href="/contact">Contact</a></li>
 				</ul>
 			</div>
 		</div>
+		@if(Request::path() == '/' || Request::path() == 'home')
+		<div class="row">
+			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="3000">
+			  <!-- Indicators -->
+			  <ol class="carousel-indicators">
+			    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+			    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+			    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+			  </ol>
+			 
+			  <!-- Wrapper for slides -->
+			  <div class="carousel-inner">
+			    <div class="item active">
+			      <img src="img/caroussel.jpg" alt="Psychedelica">
+			      <div class="carousel-caption">
+			          <h3>Flash</h3>
+			      </div>
+			    </div>
+			    <div class="item">
+			      <img src="img/caroussel2.jpg" alt="Psychedelica dos">
+			      <div class="carousel-caption">
+			          <h3>Flash Flash</h3>
+			      </div>
+			    </div>
+			    <div class="item">
+			      <img src="img/caroussel3.jpg" alt="MC Escher">
+			      <div class="carousel-caption">
+			          <h3>Metamorphose - MC Escher</h3>
+			      </div>
+			    </div>
+			  </div>
+			 
+			  <!-- Controls -->
+			  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+			    <span class="glyphicon glyphicon-chevron-left"></span>
+			  </a>
+			  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+			    <span class="glyphicon glyphicon-chevron-right"></span>
+			  </a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="carousel-content col-lg-8 col-lg-offset-2">
+				<p>The prairie, across which the sledge was moving in a straight line, was as flat as a sea. It seemed like a vast frozen lake. The railroad which ran through this section ascended from the south-west to the north-west by Great Island, Columbus, an important Nebraska town, Schuyler, and Fremont, to Omaha. It followed throughout the right bank of the Platte River. The sledge, shortening this route, took a chord of the arc described by the railway. Mudge was not afraid of being stopped by the Platte River, because it was frozen. The road, then, was quite clear of obstacles, and Phileas Fogg had but two things to fear—an accident to the sledge, and a change or calm in the wind.</p>
+			</div>
+		</div>
+		@else
+		<div class="row">
+			<div class="col-lg-12 spotlight"></div>
+		</div>
+		<div class="row">
+			<div class="col-lg-2 col-lg-offset-8 spotlight-content">
+				<h2>Forget About it</h2>
+				<p> "forget about it" is, like, if you agree with someone, you know, like "raquel welch is one great piece of ass. forget about it!" but then, if you disagree, like "a lincoln is better than a cadillac? forget about it!"...</p>
+				<p><b>Price: € 0.05</b></p>
+				<div class="visit"><h3><a href="">Visit Auction</a></h3><span class="glyphicon glyphicon-chevron-right"></span></div>
+			</div>
+		</div>
+		@endif
 		@yield('content')
 	
 		<div id="map" class="row">
-			<div class="col-lg-2 col-lg-offset-3">
+			<div class="col-lg-2 col-lg-offset-2">
 				<h4>Account</h4>
 				<ul>
 					<li><a href="auth/login">Login</a></li>
@@ -132,7 +196,7 @@
 		<footer class="footer row">
 	      	<div class="wrapper">
 	        	<div class="col-lg-1 col-lg-offset-2">
-				<img class="logo" src="img/logo.jpg" alt="logo">
+				<img class="logo" src="{{ asset('img/logo.jpg') }}" alt="logo">
 			</div>
 			<div class="col-lg-4">
 				<ul class="nav nav-tabs">
@@ -148,7 +212,7 @@
 	    </footer>
 	</div>
 </body>
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/script.js"></script>
+	<script src="{{ asset('js/jquery.min.js') }}"></script>
+	<script src="{{ asset('js/bootstrap.min.js') }}"></script>
+	<script src="{{ asset('js/script.js') }}"></script>
 </html>

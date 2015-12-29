@@ -5750,10 +5750,59 @@ button.close {
 a {
   text-decoration: none;
   color: #00c0cd; }
+  a:hover {
+    text-decoration: none; }
+
+.auction-header {
+  line-height: 63px; }
+
+.new-auction h2 {
+  margin-bottom: 1em; }
+
+.spotlight {
+  background-image: url("../img/caroussel.jpg");
+  background-repeat: no-repeat;
+  height: 500px;
+  width: 100%;
+  background-position: 0px;
+  z-index: -1;
+  margin-bottom: 50px;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  -webkit-filter: FlipH;
+  filter: FlipH;
+  -ms-filter: "FlipH"; }
+
+.spotlight-content {
+  position: absolute;
+  top: 180px;
+  color: white;
+  background-color: rgba(1, 32, 166, 0.65); }
+  .spotlight-content .visit {
+    background-color: white;
+    color: #00c0cd;
+    width: 100%;
+    position: absolute;
+    padding: 1em 0 1em 1.4em;
+    left: 0; }
+    .spotlight-content .visit h3 {
+      float: left; }
+    .spotlight-content .visit .glyphicon {
+      margin: 26px 0 0 .5em; }
+  .spotlight-content > h2 {
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: .5em;
+    padding-left: .2em;
+    width: 100%;
+    display: inline-block; }
+  .spotlight-content p {
+    padding: 1em .5em; }
 
 .header-strip {
   background-color: #eaeaea;
   height: 50px; }
+  .header-strip .nav {
+    margin-top: 4px; }
 
 #header {
   height: 50px; }
@@ -5769,7 +5818,9 @@ a {
   width: 103px;
   height: 140px;
   background: white;
-  box-shadow: 0 0 75px 15px rgba(1, 1, 1, 0.2); }
+  box-shadow: 0 0 75px 15px rgba(1, 1, 1, 0.2);
+  margin-bottom: -44px;
+  z-index: 3; }
 
 .uppernav {
   height: 46px;
@@ -5788,12 +5839,21 @@ a {
       margin-right: 10px;
       margin-top: 5px; }
 
-.carousel .carousel-inner {
-  margin-top: 0; }
-  .carousel .carousel-inner .item img {
-    margin: 0 auto;
-    height: 554px;
-    overflow: hidden; }
+.carousel {
+  z-index: -1; }
+  .carousel .carousel-inner {
+    margin-top: 0;
+    height: 800px; }
+    .carousel .carousel-inner .item img {
+      margin: 0 auto;
+      overflow: hidden; }
+
+.carousel-content {
+  background-color: rgba(1, 32, 166, 0.65);
+  color: white;
+  padding: 2em 3em;
+  position: absolute;
+  top: 650px; }
 
 #work {
   margin: 20px 0; }

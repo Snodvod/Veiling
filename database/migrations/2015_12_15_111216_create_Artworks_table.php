@@ -10,11 +10,14 @@ class CreateArtworksTable extends Migration {
 		Schema::create('artworks', function(Blueprint $table) {
 			$table->increments('id');
 			$table->string('name');
-			$table->date('year');
+			$table->string('condition');
+			$table->string('origin');
+			$table->smallInteger('year');
 			$table->string('image');
 			$table->timestamps();
 			$table->softDeletes();
 			$table->integer('auction_id');
+			$table->integer('artist_id');
 		});
 	}
 

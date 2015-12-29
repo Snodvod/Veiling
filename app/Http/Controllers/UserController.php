@@ -1,5 +1,12 @@
 <?php namespace App\Http\Controllers;
 
+use App\User;
+use App\Style;
+use App\Auction;
+use Illuminate\Http\Request;
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
+
 class UserController extends Controller {
 
   /**
@@ -7,9 +14,9 @@ class UserController extends Controller {
    *
    * @return Response
    */
-  public function index()
+  public function auctions($id)
   {
-    
+    return view('user/myauctions', ['user' => User::findOrFail($id)]);
   }
 
   /**
@@ -19,7 +26,7 @@ class UserController extends Controller {
    */
   public function create()
   {
-    
+    return view('user/new', ['styles' => Style::All()]);
   }
 
   /**
@@ -27,9 +34,29 @@ class UserController extends Controller {
    *
    * @return Response
    */
-  public function store()
+  public function store(Request $request)
   {
-    
+    $this->validate($request, [
+        'title' => 'required|unique:auctions|max:255',
+        'year' => 'required|integer|digits_between:3,4|max:2016',
+        'width' => 'required|numeric',
+        'height' => 'required|numeric',
+        'depth' => 'numeric',
+        'description' => 'required|max:255',
+        'condition' => 'required|max:255',
+        'origin' => 'required|max:255',
+        'picture' => 'required', //needs picture mime validation but throws errors every time
+        'minprice' => 'required|numeric|',
+        'buyout' => 'required|numeric|greater_than_field:minprice',
+        'date' => 'required|date|after:today',
+        'terms' => 'required|accepted'
+    ]);
+    return $request;
+    $auction = new Auction([
+        'title' => $request->title
+
+    ]);
+
   }
 
   /**

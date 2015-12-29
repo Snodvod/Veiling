@@ -19,18 +19,20 @@ Route::get('home', function() {
 	return view('index');
 });
 
+// Auction Routes
+Route::get('auctions/{id}', 'UserController@auctions');
+Route::get('auctions/{id}/new', 'UserController@create');
+Route::post('auctions/store', 'UserController@store');
 
-Route::resource('user', 'UserController');
-Route::resource('artwork', 'ArtworkController');
-Route::resource('artist', 'ArtistController');
-Route::resource('auction', 'AuctionController');
-Route::resource('bidder', 'BidderController');
+Route::get('bids/{id}', 'UserController@bids');
 
+
+
+// Auth Routes
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
-// Registration routes...
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
