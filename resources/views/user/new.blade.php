@@ -13,10 +13,9 @@
 		        </ul>
 		    </div>
 		@endif
-		<form class="form" method='POST' action="/auctions/store">
-			<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
+		<form class="form" method='POST' action="/auctions/store" enctype="multipart/form-data">
 			<div class="form-group">
-				<select name="style" class="form-control">
+				<select id="style" name="style" class="form-control">
 					@foreach($styles as $style)
 						<option>{{ $style->name }}</option>
 					@endforeach
@@ -25,6 +24,10 @@
 			<div class="form-group">
 				<label for="title">Auction title</label>
 				<input type="text" class="form-control" name="title" id="title" placeholder="Auction Title (maximum 255 characters)">
+			</div>
+			<div class="form-group">
+				<label for="artist">Artist</label>
+				<input type="text" class="form-control" name="artist" id="artist" placeholder="Artist">
 			</div>
 			<div class="form-group">
 				<label for="year">Year</label>
@@ -76,6 +79,7 @@
 				</label>
 			</div>
 			<button type="submit">Add Auction</button>
+			<input type="hidden" name="_token" value="{{ csrf_token() }}"/>
 		</form>
 	</div>
 </div>

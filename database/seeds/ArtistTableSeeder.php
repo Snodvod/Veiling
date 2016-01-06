@@ -13,15 +13,15 @@ class ArtistTableSeeder extends Seeder
     {
         DB::table('artists')->insert([
         	'name' => 'Kunsti kunst',
-        	'nationality' => 'BE'
+        	'nationality' => 'Belgium'
         ]);
         DB::table('artists')->insert([
         	'name' => 'Pablo Picasso',
-        	'nationality' => 'ESP'
+        	'nationality' => 'Spain'
         ]);
         DB::table('artists')->insert([
         	'name' => 'Myron',
-        	'nationality' => 'GRE'
+        	'nationality' => 'Greece'
         ]);
     }
 }

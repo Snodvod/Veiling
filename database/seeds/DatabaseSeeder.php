@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
         $this->call(ArtworkTableSeeder::class);
         $this->call(ArtistTableSeeder::class);
         $this->call(StyleTableSeeder::class);
+        $this->call(AuctionTableSeeder::class);
+        $this->call(CountriesSeeder::class);
 
         Model::reguard();
     }

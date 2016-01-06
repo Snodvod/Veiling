@@ -13,7 +13,7 @@ class Auction extends Model {
 	use SoftDeletes;
 
 	protected $dates = ['deleted_at'];
-	protected $fillable = array('buy_now', 'price', 'buyer_id');
+	protected $fillable = array('title', 'description', 'start', 'end', 'buy_now', 'price', 'buyer_id', 'style_id');
 
 	public function owner()
 	{

@@ -15,6 +15,12 @@ class AuthController extends Controller
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
     protected $loginPath = '/home';
+
+    public function __construct()
+    {
+        $this->middleware('guest', ['except' => 'getLogout']);
+    }
+
     /**
      * Redirect the user to the Facebook authentication page.
      *
@@ -62,16 +68,18 @@ class AuthController extends Controller
         ]);
     }
 
+    public function getRegister()
+    {
+        return view('auth.register', ['countries' => \App\Country::All()]);
+    }
+
     
     /**
      * Create a new authentication controller instance.
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('guest', ['except' => 'getLogout']);
-    }
+    
 
     /**
      * Get a validator for an incoming registration request.
@@ -85,6 +93,12 @@ class AuthController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
+            'password_confirmation' => 'required|min:6',
+            'country' => 'required',
+            'address' => 'required',
+            'zip' => 'required',
+            'city' =>'required',
+            'phone' => 'required|numeric|digits:9'
         ]);
     }
 
@@ -100,6 +114,11 @@ class AuthController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'country' => $data['country'],
+            'address' => $data['address'],
+            'zip' => $data['zip'],
+            'city' => $data['city'],
+            'phone' => $data['code'] . $data['phone']
         ]);
     }
 }

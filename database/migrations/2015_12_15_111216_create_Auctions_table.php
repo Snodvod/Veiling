@@ -15,6 +15,7 @@ class CreateAuctionsTable extends Migration {
 			$table->dateTime('end');
 			$table->float('buy_now');
 			$table->float('price');
+			$table->string('status');
 			$table->integer('user_id');
 			$table->integer('buyer_id');
 			$table->integer('style_id');

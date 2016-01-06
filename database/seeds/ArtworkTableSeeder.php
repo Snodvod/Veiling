@@ -14,20 +14,23 @@ class ArtworkTableSeeder extends Seeder
         DB::table('artworks')->insert([
         	'name' => 'Schilderij 43P23',
         	'year' => 2015,
-        	'image' => 'schilderij43p23.jpg',
+        	'image' => 'schilderij.jpg',
+            'auction_id' => 1,
         	'artist_id' => 1
         ]);
 
         DB::table('artworks')->insert([
         	'name' => 'Buste Caesar',
         	'year' => 203,
-        	'image' => 'Caesar.jpg',
+        	'image' => 'caesar.jpg',
+            'auction_id' => 2,
         	'artist_id' => 3
         ]);
         DB::table('artworks')->insert([
         	'name' => 'Picasso',
         	'year' => 1970,
         	'image' => 'picasso.jpg',
+            'auction_id' => 3,
         	'artist_id' => 2
         ]);        
     }

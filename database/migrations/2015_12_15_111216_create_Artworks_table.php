@@ -10,6 +10,9 @@ class CreateArtworksTable extends Migration {
 		Schema::create('artworks', function(Blueprint $table) {
 			$table->increments('id');
 			$table->string('name');
+			$table->integer('width');
+			$table->integer('height');
+			$table->integer('depth');
 			$table->string('condition');
 			$table->string('origin');
 			$table->smallInteger('year');

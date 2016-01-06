@@ -22,7 +22,7 @@ class User extends Model implements AuthenticatableContract,
 	public $timestamps = true;
 
 	protected $dates = ['deleted_at'];
-	protected $fillable = array('name', 'email', 'password', 'facebook_id', 'avatar');
+	protected $fillable = array('name', 'email', 'password', 'facebook_id', 'avatar', 'country', 'zip', 'city', 'address');
 	protected $hidden = array('password', 'remember_token');
 
 	public function bidder()

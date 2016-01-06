@@ -54,8 +54,8 @@
 					<li><a href="/art">Art</a></li>
 					<li><a href="#">iSearch</a></li>
 					@if(Auth::check())
-					<li><a href="/auctions/{{ Auth::User()->id }}">MyAuctions</a></li>
-					<li><a href="/mybids/{{ Auth::User()->id }}">MyBids</a></li>
+					<li><a href="/auctions">MyAuctions</a></li>
+					<li><a href="/mybids">MyBids</a></li>
 					@else
 					<li><a href="#">MyAuctions</a></li>
 					<li><a href="#">MyBids</a></li>
@@ -123,8 +123,13 @@
 			</div>
 		</div>
 		@endif
-		@yield('content')
-	
+
+
+		<div class="content">
+			@yield('content')
+		</div>
+
+
 		<div id="map" class="row">
 			<div class="col-lg-2 col-lg-offset-2">
 				<h4>Account</h4>

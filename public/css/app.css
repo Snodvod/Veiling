@@ -5753,6 +5753,32 @@ a {
   a:hover {
     text-decoration: none; }
 
+#portrait {
+  background: url("../img/portrait.jpg");
+  height: 600px;
+  background-size: 150%;
+  background-repeat: no-repeat; }
+  #portrait p {
+    background: linear-gradient(to top, #d9ebeb 0%, rgba(217, 235, 235, 0.8) 70%, rgba(217, 235, 235, 0) 100%);
+    padding: 10em 4em 2em;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 0;
+    z-index: 20; }
+  #portrait .overlay {
+    background: #d9ebeb;
+    height: 100%;
+    width: 100%;
+    opacity: .6;
+    top: 0;
+    left: 0;
+    position: absolute;
+    padding: 0; }
+
+.content h1, .content h2, .content h3, .content h4, .content h5 {
+  margin-bottom: 1em; }
+
 .auction-header {
   line-height: 63px; }
 

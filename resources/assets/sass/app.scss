@@ -12,6 +12,42 @@ a {
 	}
 }
 
+#portrait {
+	background: url('../img/portrait.jpg');
+	height: 600px;
+	background-size: 150%;
+    background-repeat: no-repeat;
+    p {
+    	background: linear-gradient(to top, rgba(217,235,235,1) 0%,rgba(217,235,235,0.8) 70%,rgba(217,235,235,0) 100%);
+    	padding: 10em 4em 2em; 
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		margin-bottom: 0;
+		z-index: 20;
+    
+	}
+    .overlay {
+		background: #d9ebeb;
+		height: 100%;
+		width: 100%;
+		opacity: .6;
+		top: 0;
+		left: 0;
+		position: absolute;
+		padding: 0;
+	}
+}
+
+.content {
+	h1, h2, h3, h4, h5 {
+		margin-bottom: 1em;
+	}
+}
+
+
+
+
 .auction-header {
 	line-height: 63px;
 }

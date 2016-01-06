@@ -20,11 +20,17 @@ Route::get('home', function() {
 });
 
 // Auction Routes
-Route::get('auctions/{id}', 'UserController@auctions');
-Route::get('auctions/{id}/new', 'UserController@create');
-Route::post('auctions/store', 'UserController@store');
 
-Route::get('bids/{id}', 'UserController@bids');
+Route::group(['middleware' => 'auth'], function () {
+	Route::get('auctions', 'UserController@auctions');
+	Route::get('auctions/new', 'UserController@create');
+	Route::post('auctions/store', 'UserController@store');
+});
+
+
+Route::get('bids', 'UserController@bids');
+
+Route::get('art', 'ArtController@index');
 
 
 

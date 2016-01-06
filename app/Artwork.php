@@ -13,7 +13,7 @@ class Artwork extends Model {
 	use SoftDeletes;
 
 	protected $dates = ['deleted_at'];
-	protected $fillable = array('name');
+	protected $fillable = array('name', 'width', 'height', 'depth', 'condition', 'origin', 'year', 'image', 'auction_id', 'artist_id');
 
 	public function auction()
 	{

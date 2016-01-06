@@ -10,6 +10,8 @@ class Artist extends Model {
 	protected $table = 'artists';
 	public $timestamps = true;
 
+	protected $fillable = array('name');
+
 	use SoftDeletes;
 
 	protected $dates = ['deleted_at'];

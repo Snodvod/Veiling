@@ -1,29 +1,25 @@
 <?php namespace App\Http\Controllers;
 
 use App\User;
+use Auth;
 use App\Style;
-use App\Auction;
+use App\Auction;;
+use App\Artist;
+use App\Artwork;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 
 class UserController extends Controller {
 
-  /**
-   * Display a listing of the resource.
-   *
-   * @return Response
-   */
-  public function auctions($id)
+
+  public function auctions()
   {
-    return view('user/myauctions', ['user' => User::findOrFail($id)]);
+    $auctions = Auth::user()->auctionsowner;
+    return view('user/myauctions', ['auctions' => $auctions]);//->with('artwork')->get()]);
   }
 
-  /**
-   * Show the form for creating a new resource.
-   *
-   * @return Response
-   */
   public function create()
   {
     return view('user/new', ['styles' => Style::All()]);
@@ -38,6 +34,7 @@ class UserController extends Controller {
   {
     $this->validate($request, [
         'title' => 'required|unique:auctions|max:255',
+        'artist' => 'required|max:255',
         'year' => 'required|integer|digits_between:3,4|max:2016',
         'width' => 'required|numeric',
         'height' => 'required|numeric',
@@ -51,12 +48,51 @@ class UserController extends Controller {
         'date' => 'required|date|after:today',
         'terms' => 'required|accepted'
     ]);
-    return $request;
-    $auction = new Auction([
-        'title' => $request->title
 
+    $artist = Artist::where('name', $request->artist)->first();
+    if(!$artist) {
+      $artist =  new Artist([
+          'name' => $request->artist
+      ]);
+    }
+    $artist->save();
+
+    $auction = new Auction([
+        'title' => $request->title,
+        'description' => $request->description,
+        'start' => Carbon::now(),
+        'end' => $request->date,
+        'buy_now' => $request->buyout,
+        'price' => $request->minprice,
+        'style_id' => Style::Where('name', $request->style)->first()->id
+    ]);
+    $artwork = new Artwork([
+        'name' => $request->title,
+        'width' => $request->width,
+        'height' => $request->height,
+        'depth' => $request->depth,
+        'condition' => $request->condition,
+        'origin' => $request->origin,
+        'image' => $request->picture,
+        'year' => $request->year
     ]);
 
+    $artwork->auction()->associate($auction);
+    $artwork->save();
+
+    // Picture save
+    $imageName = $artwork->id . '.' . 
+        $request->file('picture')->getClientOriginalExtension();
+
+    $request->file('picture')->move(
+        base_path() . '/public/img/catalog/', $imageName
+    );
+
+    $artist->artworks()->save($artwork);
+    $owner = $request->user();
+    $owner->auctionsowner()->save($auction);
+
+    return redirect('/auctions/' . $owner->id);
   }
 
   /**
