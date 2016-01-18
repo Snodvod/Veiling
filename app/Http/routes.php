@@ -25,13 +25,14 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('auctions', 'UserController@auctions');
 	Route::get('auctions/new', 'UserController@create');
 	Route::post('auctions/store', 'UserController@store');
+	Route::post('bid', 'ArtController@bid');
 });
 
-
-Route::get('bids', 'UserController@bids');
-
+Route::get('art/{id}', 'ArtController@show');
 Route::get('art', 'ArtController@index');
 
+Route::get('art/sort/{param}', 'ArtController@index');
+Route::get('art/filter/{param1}/{param2}', 'ArtController@index');
 
 
 // Auth Routes

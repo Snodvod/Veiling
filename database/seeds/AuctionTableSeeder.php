@@ -16,7 +16,7 @@ class AuctionTableSeeder extends Seeder
     	$dt = Carbon::now();
         DB::table('auctions')->insert([
         	'title' => 'Schilderij 43P23',
-        	'description' => 'Schitterend schilderij echt fantastisch ongelooflijk',
+        	'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus convallis leo et accumsan maximus. Pellentesque eu ullamcorper dolor. Nulla nec lectus libero. Nunc nec euismod nibh, id vestibulum erat. Praesent venenatis volutpat dignissim. Nulla non lectus vel lorem semper eleifend id quis ex. Nulla ornare tempus vehicula. Sed purus sem, mollis eget viverra a, feugiat in enim. Nullam faucibus nunc nec leo fringilla pulvinar. Nam commodo ac ante eu aliquam. Aliquam eget nibh nec nisi tristique euismod cursus sit amet lectus. Nam blandit fermentum tortor, non semper velit vestibulum sit amet. Donec feugiat, dolor non imperdiet scelerisque, velit eros imperdiet magna, finibus pretium mi diam vitae elit. Mauris bibendum consequat diam id vehicula. Fusce enim nisi, elementum sit amet purus id, rhoncus accumsan ligula.',
         	'start' => $dt,
         	'end' => $dt->addWeek(),
         	'buy_now' => 25130,
@@ -24,9 +24,10 @@ class AuctionTableSeeder extends Seeder
         	'user_id' => 5,
         	'style_id' => 1
         ]);
+        $dt->subweek();
         DB::table('auctions')->insert([
         	'title' => 'Buste Caesar',
-        	'description' => 'Caesar zonder beentjes',
+        	'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus convallis leo et accumsan maximus. Pellentesque eu ullamcorper dolor. Nulla nec lectus libero. Nunc nec euismod nibh, id vestibulum erat. Praesent venenatis volutpat dignissim. Nulla non lectus vel lorem semper eleifend id quis ex. Nulla ornare tempus vehicula. Sed purus sem, mollis eget viverra a, feugiat in enim. Nullam faucibus nunc nec leo fringilla pulvinar. Nam commodo ac ante eu aliquam. Aliquam eget nibh nec nisi tristique euismod cursus sit amet lectus. Nam blandit fermentum tortor, non semper velit vestibulum sit amet. Donec feugiat, dolor non imperdiet scelerisque, velit eros imperdiet magna, finibus pretium mi diam vitae elit. Mauris bibendum consequat diam id vehicula. Fusce enim nisi, elementum sit amet purus id, rhoncus accumsan ligula.',
         	'start' => $dt,
         	'end' => $dt->addWeek(),
         	'buy_now' => 50000000,
@@ -34,9 +35,10 @@ class AuctionTableSeeder extends Seeder
         	'user_id' => 5,
         	'style_id' => 1
         ]);
+        $dt->subweek();
         DB::table('auctions')->insert([
         	'title' => 'Picasso',
-        	'description' => 'Doek vol vlekken, Picasso had gezopen',
+        	'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus convallis leo et accumsan maximus. Pellentesque eu ullamcorper dolor. Nulla nec lectus libero. Nunc nec euismod nibh, id vestibulum erat. Praesent venenatis volutpat dignissim. Nulla non lectus vel lorem semper eleifend id quis ex. Nulla ornare tempus vehicula. Sed purus sem, mollis eget viverra a, feugiat in enim. Nullam faucibus nunc nec leo fringilla pulvinar. Nam commodo ac ante eu aliquam. Aliquam eget nibh nec nisi tristique euismod cursus sit amet lectus. Nam blandit fermentum tortor, non semper velit vestibulum sit amet. Donec feugiat, dolor non imperdiet scelerisque, velit eros imperdiet magna, finibus pretium mi diam vitae elit. Mauris bibendum consequat diam id vehicula. Fusce enim nisi, elementum sit amet purus id, rhoncus accumsan ligula.',
         	'start' => $dt,
         	'end' => $dt->addWeek(),
         	'buy_now' => 20,

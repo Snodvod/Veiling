@@ -11,7 +11,7 @@
 <div class="row">
 	<div class="col-lg-8 col-lg-offset-2">
 		<h3>Active</h3>
-		<table class="table table-bordered">
+		<table id="auctiontable" class="table table-bordered">
 			<thead>
 				<tr>
 					<th></th>
@@ -22,16 +22,16 @@
 				</tr>
 			</thead>
 			<tbody>
-				@foreach($auctions as $auction)
+				@foreach($auctions as $index => $auction)
 					<tr>
-						<td>IMAGE</td>
+						<td><div id="tablecrop"><img src="/img/{{$auction->artwork->image}}" alt="auction image"><div></td>
 						<td>{{$auction->title}}
 							{{$auction->artwork->year}},
 							{{$auction->artwork->artist->name}}
 						</td>
 						<td>{{$auction->price}}</td>
 						<td>{{date('F d, Y', strtotime($auction->end))}}</td>
-						<td>TIME</td>
+						<td>{{$timediff[$index]}}</td>
 					</tr>
 				@endforeach
 			</tbody>

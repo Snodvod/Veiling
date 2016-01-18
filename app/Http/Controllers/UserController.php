@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
+use App\Classes\timecalc;
 
 class UserController extends Controller {
 
@@ -17,7 +18,8 @@ class UserController extends Controller {
   public function auctions()
   {
     $auctions = Auth::user()->auctionsowner;
-    return view('user/myauctions', ['auctions' => $auctions]);//->with('artwork')->get()]);
+    $timeArray = timecalc::calculate($auctions);
+    return view('user/myauctions', ['auctions' => $auctions, 'timediff' => $timeArray]);
   }
 
   public function create()

@@ -32,7 +32,7 @@ class Auction extends Model {
 
 	public function bidders()
 	{
-		return $this->belongsToMany('App\Bidder');
+		return $this->hasMany('App\Bidder');
 	}
 
 	public function style()

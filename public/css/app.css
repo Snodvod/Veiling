@@ -5753,12 +5753,114 @@ a {
   a:hover {
     text-decoration: none; }
 
-#portrait {
+#auctiontable #tablecrop {
+  height: 200px;
+  width: 200px;
+  overflow: hidden;
+  position: relative; }
+
+#auctiontable img {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 300px; }
+
+.info .side {
+  border-left: 1px #eaeaea solid;
+  padding-left: 25px;
+  margin-left: 15px; }
+
+.detail {
+  margin-bottom: 30px; }
+  .detail .side {
+    text-align: right; }
+    .detail .side #title {
+      border-bottom: 1px solid #eaeaea; }
+    .detail .side .bid {
+      border: solid 1px #eaeaea;
+      margin-top: 140px; }
+      .detail .side .bid p, .detail .side .bid h3 {
+        padding-right: 15px; }
+      .detail .side .bid #bluebid {
+        padding: 20px 15px 20px 0;
+        background-color: #00c0cd; }
+        .detail .side .bid #bluebid #bid {
+          margin-right: 20px; }
+      .detail .side .bid input {
+        width: 40%;
+        height: 40px; }
+  .detail .imagecol {
+    height: 500px;
+    overflow: hidden;
+    position: relative; }
+    .detail .imagecol img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto; }
+
+.art .filter-wrapper {
+  margin-bottom: 2em; }
+
+.art .filter {
+  display: none; }
+  .art .filter ul {
+    list-style-type: none; }
+    .art .filter ul a {
+      color: black; }
+
+.art .advanced h3 {
+  margin: 0;
+  cursor: pointer; }
+
+.art .sort a {
+  border-right: 1px solid black;
+  color: black;
+  padding-right: .4em; }
+  .art .sort a:last-child {
+    border: none; }
+
+.art .col-lg-4 {
+  padding-left: 30px; }
+
+.art .artwork {
+  background-repeat: no-repeat;
+  height: 350px;
+  margin-bottom: 78px; }
+  .art .artwork img {
+    width: 100%; }
+  .art .artwork h4, .art .artwork p {
+    margin: 0 5%; }
+  .art .artwork .details {
+    margin-bottom: 25px; }
+  .art .artwork .crop {
+    height: 240px;
+    overflow: hidden;
+    margin-bottom: 1em; }
+  .art .artwork .underline {
+    width: 100%;
+    margin-left: 0;
+    border-bottom: 1px solid #eaeaea;
+    height: 34px; }
+    .art .artwork .underline .btn {
+      border-radius: 0;
+      background-color: #eaeaea;
+      color: #0a1e75; }
+    .art .artwork .underline div:first-child {
+      bottom: -8px;
+      left: 15px; }
+
+.art #portrait {
   background: url("../img/portrait.jpg");
-  height: 600px;
+  height: 800px;
   background-size: 150%;
   background-repeat: no-repeat; }
-  #portrait p {
+  .art #portrait p {
     background: linear-gradient(to top, #d9ebeb 0%, rgba(217, 235, 235, 0.8) 70%, rgba(217, 235, 235, 0) 100%);
     padding: 10em 4em 2em;
     position: absolute;
@@ -5766,7 +5868,7 @@ a {
     left: 0;
     margin-bottom: 0;
     z-index: 20; }
-  #portrait .overlay {
+  .art #portrait .overlay {
     background: #d9ebeb;
     height: 100%;
     width: 100%;
@@ -5776,8 +5878,8 @@ a {
     position: absolute;
     padding: 0; }
 
-.content h1, .content h2, .content h3, .content h4, .content h5 {
-  margin-bottom: 1em; }
+.detail img {
+  width: 100%; }
 
 .auction-header {
   line-height: 63px; }
@@ -5792,7 +5894,7 @@ a {
   width: 100%;
   background-position: 0px;
   z-index: -1;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
   -webkit-filter: FlipH;

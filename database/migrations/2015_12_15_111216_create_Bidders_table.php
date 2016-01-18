@@ -9,6 +9,8 @@ class CreateBiddersTable extends Migration {
 	{
 		Schema::create('bidders', function(Blueprint $table) {
 			$table->increments('id');
+			$table->integer('price');
+			$table->integer('auction_id');
 			$table->timestamps();
 			$table->softDeletes();
 		});

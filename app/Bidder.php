@@ -9,6 +9,7 @@ class Bidder extends Model {
 
 	protected $table = 'bidders';
 	public $timestamps = true;
+	protected $fillable = ['price'];
 
 	use SoftDeletes;
 
@@ -19,8 +20,8 @@ class Bidder extends Model {
 		return $this->hasOne('App\User');
 	}
 
-	public function auctions()
+	public function auction()
 	{
-		return $this->belongsToMany('App\Auction');
+		return $this->belongsTo('App\Auction');
 	}
 }

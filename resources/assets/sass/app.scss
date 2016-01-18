@@ -11,42 +11,176 @@ a {
 		text-decoration: none;
 	}
 }
-
-#portrait {
-	background: url('../img/portrait.jpg');
-	height: 600px;
-	background-size: 150%;
-    background-repeat: no-repeat;
-    p {
-    	background: linear-gradient(to top, rgba(217,235,235,1) 0%,rgba(217,235,235,0.8) 70%,rgba(217,235,235,0) 100%);
-    	padding: 10em 4em 2em; 
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		margin-bottom: 0;
-		z-index: 20;
-    
+#auctiontable {
+	#tablecrop {
+		height: 200px;
+		width: 200px;
+		overflow: hidden;
+		position: relative;
 	}
-    .overlay {
-		background: #d9ebeb;
-		height: 100%;
-		width: 100%;
-		opacity: .6;
+	img {
+		position: absolute;
+		margin: auto;
 		top: 0;
 		left: 0;
-		position: absolute;
-		padding: 0;
+		right: 0;
+		bottom: 0;
+		max-height: 300px;
 	}
 }
 
-.content {
-	h1, h2, h3, h4, h5 {
-		margin-bottom: 1em;
+.info {
+	.side {
+		border-left: 1px $border-grey solid;
+		padding-left: 25px;
+		margin-left: 15px;
 	}
 }
 
+.detail {
+	margin-bottom: 30px;
+	.side {
+		text-align: right;
+		#title {
+			border-bottom: 1px solid $border-grey;
+		}
+		.bid {
+			p, h3 {
+				padding-right: 15px;
+			}
+			border: solid 1px $border-grey;
+			margin-top: 140px;
+			#bluebid {
+				padding: 20px 15px 20px 0;
+				background-color: $light-blue;
+				#bid {
+					margin-right: 20px;
+				}
+				
+			}
+			input {
+				width: 40%;
+				height: 40px;
+			}
+		}
+	}
+	.imagecol {
+		height: 500px;
+		overflow: hidden;
+		position: relative;
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+		}
+	}
+}
 
+.art {
+	.filter-wrapper {
+		margin-bottom: 2em;
+	}
 
+	.filter {
+		display: none;
+		ul {
+			list-style-type: none;
+			a {
+				color: black;
+			}
+		}
+		
+	}
+	.advanced {
+		h3 {
+			margin: 0;
+			cursor: pointer;
+		}
+	}
+	.sort {
+		a {
+			border-right: 1px solid black;
+			color: black;
+			padding-right: .4em;
+			&:last-child {
+				border: none;
+			}
+		}
+	}
+	.col-lg-4 {
+		padding-left: 30px; 
+	}
+	.artwork {
+		background-repeat: no-repeat;
+		height: 350px;
+		margin-bottom: 78px;
+		img {
+			width: 100%;
+		}
+		h4, p {
+			margin: 0 5%;
+		}
+		.details {
+			margin-bottom: 25px;
+		}
+		.crop {
+			height: 240px;
+			overflow: hidden;
+			margin-bottom: 1em;
+		}
+		.underline {
+			width: 100%;
+			margin-left: 0;
+			border-bottom: 1px solid $border-grey;
+			height: 34px;
+			.btn {
+				border-radius: 0;
+				background-color: $border-grey;
+				color: $blue-text;
+			}
+			div:first-child {
+				bottom: -8px;
+				left: 15px;
+			}
+		}
+	}
+	#portrait {
+		background: url('../img/portrait.jpg');
+		height: 800px;
+		background-size: 150%;
+	    background-repeat: no-repeat;
+	    p {
+	    	background: linear-gradient(to top, rgba(217,235,235,1) 0%,rgba(217,235,235,0.8) 70%,rgba(217,235,235,0) 100%);
+	    	padding: 10em 4em 2em; 
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			margin-bottom: 0;
+			z-index: 20;
+	    
+		}
+	    .overlay {
+			background: #d9ebeb;
+			height: 100%;
+			width: 100%;
+			opacity: .6;
+			top: 0;
+			left: 0;
+			position: absolute;
+			padding: 0;
+		}
+	}	
+
+}
+
+.detail {
+	img {
+		width: 100%;
+	}
+}
 
 .auction-header {
 	line-height: 63px;
@@ -65,7 +199,7 @@ a {
 	width: 100%;
 	background-position: 0px;
 	z-index: -1;
-	margin-bottom: 50px;
+	margin-bottom: 40px;
 
 	-moz-transform: scaleX(-1);
     -o-transform: scaleX(-1);
