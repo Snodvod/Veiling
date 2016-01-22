@@ -14,6 +14,7 @@
 Route::get('/', 'ArtController@indexpage');
 Route::get('/home', 'ArtController@indexpage');
 
+Route::get('/contact/{id?}', 'UserController@contact');
 
 
 
@@ -25,6 +26,8 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('auctions/new', 'UserController@create');
 	Route::post('auctions/store', 'UserController@store');
 	Route::post('bid', 'ArtController@bid');
+	Route::post('art/{id}/buy', 'ArtController@buy');
+	Route::post('/contact', 'UserController@contact');
 });
 
 Route::get('art/{id}', 'ArtController@show');
@@ -35,7 +38,7 @@ Route::get('art/filter/{param1}/{param2}', 'ArtController@index');
 
 Route::post('search/{query}', 'ArtController@search');
 
-Route::post('art/{id}/buy', 'ArtController@buy');
+
 
 
 // Auth Routes
@@ -49,3 +52,9 @@ Route::post('auth/register', 'Auth\AuthController@postRegister');
 // Facebook Login...
 Route::get('auth/facebook', 'Auth\AuthController@redirectToProvider');
 Route::get('auth/facebook/callback', 'Auth\AuthController@handleProviderCallback');
+
+Route::get('password/email', 'Auth\PasswordController@getEmail');
+Route::post('password/email', 'Auth\PasswordController@postEmail');
+
+Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
+Route::post('password/reset', 'Auth\PasswordController@postReset');

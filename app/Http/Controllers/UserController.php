@@ -99,50 +99,29 @@ class UserController extends Controller {
     return redirect('/auctions/' . $owner->id);
   }
 
-  /**
-   * Display the specified resource.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function show($id)
+  public function contact($id = '')
   {
+    $auctions = Auction::All();
+    if($id != '') {
+      $selected = $auctions[$id-1];
+      return view('contact', ['auctions' => $auctions, 'selected' => $selected]);
+    } else {
+      return view('contact', ['auctions' => $auctions]);
+    }
     
   }
 
-  /**
-   * Show the form for editing the specified resource.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function edit($id)
+  public function contact(Request $request)
   {
+    $user = User::findOrFail($request->user);
+    $sender = Auth::user();
+    Mail::send('emails.contact', ['sender' => $sender, 'user' => $user, 'message' = $request->message, 'auction' = $request->auction], function($m) use ($user) {
+        $m->from('info@landoretti', 'Landoretti');
+        $m->to($user->email, $user->name)->subject($request->subject);
+    });
+
     
   }
 
-  /**
-   * Update the specified resource in storage.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function update($id)
-  {
-    
-  }
-
-  /**
-   * Remove the specified resource from storage.
-   *
-   * @param  int  $id
-   * @return Response
-   */
-  public function destroy($id)
-  {
-    
-  }
-  
-}
 
 ?>

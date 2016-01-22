@@ -14,6 +14,7 @@ use Carbon\Carbon;
 use App\Bidder;
 use Auth;
 use DB;
+use Mail;
 
 class ArtController extends Controller
 {
@@ -197,6 +198,12 @@ class ArtController extends Controller
         $user = Auth::user();
         $user->auctionsbuyer()->save($auction);
         $auction->status = "sold";
+
+        Mail::send('emails.sorry', ['user' => $user], function($m) use ($user) {
+            $m->from('info@landoretti.com', 'Landoretti');
+
+            $m->to($user->email, $user->name)->subject("Sorry, uw bieding is door iemand overgekocht");
+        });
 
     }
 

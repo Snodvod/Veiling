@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => 'info@landoretti.be', 'name' => 'Landoretti'],
 
     /*
     |--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'username' => env('MAIL_USERNAME'),
+    'username' => 'postmaster@sandbox48b5f6d27f7e47d1bf3311d177974d39.mailgun.org',
 
     /*
     |--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return [
     |
     */
 
-    'password' => env('MAIL_PASSWORD'),
+    'password' => 'e4cc547bfa754778213a2245ab738092',
 
     /*
     |--------------------------------------------------------------------------

@@ -40,6 +40,7 @@
 						<input type="password" name="password" class="form-control" placeholder="Password">
 					</div>
 					<button type="submit" class="btn btn-default">Login</button>
+					<a href="/password/email">Vergeten?</a>
 				</form>
 			</div>
 			<div class="search col-lg-2 col-lg-offset-7 input-group">
@@ -147,44 +148,37 @@
 				</ul>
 				<h4>Languages</h4>
 				<ul>
-					<li><a href="lang/english">English</a></li>
-					<li><a href="lang/dutch">Nederlands</a></li>
-				</ul>
-			</div>
-			<div class="col-lg-2">
-				<h4>Style</h4>
-				<ul>
-					<li><a href="">Get styles from DB</a></li>
-				</ul>
-				<h4>Style</h4>
-				<ul>
-					<li><a href="">Get art styles from DB</a></li>
+					<li><a href="#">English</a></li>
+					<li><a href="#">Nederlands</a></li>
 				</ul>
 			</div>
 			<div class="col-lg-2">
 				<h4>Price</h4>
-				<ul><li><a href="#">Up to 5000</a></li>
-				<li><a href="#">5000-10000</a></li>
-				<li><a href="#">10000-25000</a></li>
-				<li><a href="#">25000-50000</a></li>
-				<li><a href="#">50000-100000</a></li>
-				<li><a href="#">Above</a></li></ul>
+				<ul><li><a href="/art/filter/price/5000">Up to 5000</a></li>
+				<li><a href="/art/filter/price/10000">5000-10000</a></li>
+
+
+
+				<li><a href="/art/filter/price/25000">10000-25000</a></li>
+				<li><a href="/art/filter/price/50000">25000-50000</a></li>
+				<li><a href="/art/filter/price/100.000">50000-100000</a></li>
+				<li><a href="/art/filter/price/more">Above</a></li></ul>
 
 				<h4>Era</h4>
 				<ul>
-					<li><a href="#">Pre-War</a></li>
-					<li><a href="#">40's-50's</a></li>
-					<li><a href="#">60's-80's</a></li>
-					<li><a href="#">90's-Present</a></li>
+					<li><a href="/art/filter/era/pre">Pre-War</a></li>
+					<li><a href="/art/filter/era/4060">40's-60's</a></li>
+					<li><a href="/art/filter/era/6080">60's-80's</a></li>
+					<li><a href="/art/filter/era/now">90's-Present</a></li>
 				</ul>
 				<h4>Endings</h4>
 				<ul>
-					<li><a href="#">This week</a></li>
-					<li><a href="#">Newly listed</a></li>
-					<li><a href="#">Purchase Now</a></li>
+					<li><a href="/art/filter/end/week">This week</a></li>
+					<li><a href="/art/filter/end/new">Newly listed</a></li>
+					<li><a href="/art/filter/end/now">Purchase Now</a></li>
 				</ul>
 			</div>
-			<div id="right" class="col-lg-2">
+			<div id="right" class="col-lg-offset-2 col-lg-2">
 				<div class="verticalline">
 				</div>
 				<h4>Find what you need</h4>

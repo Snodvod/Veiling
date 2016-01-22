@@ -69,7 +69,7 @@
 		</p>
 		
 		<div class="question">
-			<a href="mail">Ask a question about this auction</a>
+			<a href="/contact/{{$auction->id}}">Ask a question about this auction</a>
 		</div>
 	</div>
 </div>
