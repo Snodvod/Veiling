@@ -28,4 +28,22 @@
 			<span id="expand" class="glyphicon glyphicon-expand"></span>
 		</div>
 	</div>
+	<div class="row popimg">
+		<div class="col-lg-offset-2 col-lg-2">
+			<div class="row">
+				<div class="col-lg-12">
+					<a href="art/{{$popular[1]->id}}"><img src="img/{{$popular[1]->artwork->image}}" alt="{{$popular[1]->title}}"></a>
+				</div>
+				<div class="col-lg-12">
+					<a href="art/{{$popular[2]->id}}"><img src="img/{{$popular[2]->artwork->image}}" alt="{{$popular[2]->title}}"></a>
+				</div>
+			</div>
+			
+			
+		</div>
+		<div class="col-lg-6">
+			<a href="art/{{$popular[0]->id}}"><img src="img/{{$popular[0]->artwork->image}}" alt="{{$popular[0]->title}}"></a>
+		</div>
+	</div>
+
 @endsection

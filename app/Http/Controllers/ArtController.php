@@ -7,11 +7,13 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Artwork;
+use App\Artist;
 use App\Auction;
 use App\Classes\timecalc;
 use Carbon\Carbon;
 use App\Bidder;
 use Auth;
+use DB;
 
 class ArtController extends Controller
 {
@@ -152,8 +154,11 @@ class ArtController extends Controller
      */
     public function show($id)
     {
+        $thisAuction = Auction::findOrFail($id);
         $auctions = [];
-        array_push($auctions, Auction::findOrFail($id));
+        array_push($auctions, $thisAuction);
+        $thisAuction->clicks = $thisAuction->clicks + 1;
+        $thisAuction->save();
         $timeArray = timecalc::calculate($auctions);
         return view('art.artwork', ['auction' => $auctions[0], 'timediff' => $timeArray[0]]);
     }
@@ -164,9 +169,19 @@ class ArtController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function search($query)
     {
-        //
+        // $artist = Artist::whereHas('artworks', function($q) use ($query) {
+        //     $q->where('name', 'like', '%'.$query.'%');
+        // })->orWhere()
+    }
+
+    public function indexpage() {
+        $auctions = Auction::All();
+        $sorted = $auctions->sortBy('clicks');
+        $popular = $sorted->values()->all();
+
+        return view('index', ['popular' => $popular]);
     }
 
     /**
@@ -176,9 +191,13 @@ class ArtController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function buy($id)
     {
-        //
+        $auction = Auction::findOrFail($id);
+        $user = Auth::user();
+        $user->auctionsbuyer()->save($auction);
+        $auction->status = "sold";
+
     }
 
     /**

@@ -11,6 +11,7 @@ class CreateBiddersTable extends Migration {
 			$table->increments('id');
 			$table->integer('price');
 			$table->integer('auction_id');
+			$table->integer('user_id');
 			$table->timestamps();
 			$table->softDeletes();
 		});

@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Carbon\Carbon;
+use App\Auction;
 
 class Auctionswitch extends Command
 {
@@ -38,6 +39,29 @@ class Auctionswitch extends Command
      */
     public function handle()
     {
-        //
+        $auctions = Auction::All();
+        foreach($auctions as $auction) {
+            if($auction->status == "Active") {
+                if($auction->end <= Carbon::now()) {
+                    if(count($auction->bidders) > 0) {
+                        $this->info($auction);
+                        $auction->status = 'Sold';
+                        $highest = 0;
+                        foreach($auction->bidders as $bidder) {
+                            if($bidder->price > $highest) {
+                                $winner = $bidder->user;
+                                $highest = $bidder->price;
+                            }
+                        } if(isset($winner)) {$winner->auctionsbuyer()->save($auction);}
+                        
+                    } else {
+                        $this->info($auction->status);
+
+                        $auction->status = 'Expired';
+                        $auction->save();
+                    }
+                }
+            }
+        }
     }
 }

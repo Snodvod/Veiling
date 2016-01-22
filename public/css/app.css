@@ -5950,6 +5950,8 @@ a {
   margin-bottom: -44px;
   z-index: 3; }
 
+
+
 .uppernav {
   height: 46px;
   line-height: 46px; }
@@ -5987,13 +5989,25 @@ a {
   margin: 20px 0; }
 
 #popular {
-  background-color: #00c0cd; }
+  background-color: #f8f8f8; }
   #popular #pophead {
     margin-right: 10px; }
   #popular .glyphicon-expand {
     top: 30px;
     right: 300px;
     position: absolute; }
+
+.popimg img {
+    width: 100%;
+}
+
+.popimg .col-lg-6 {
+  height: 386px;
+  position: relative;
+  overflow: hidden;
+}
+
+
 
 #map {
   margin: 20px 0;

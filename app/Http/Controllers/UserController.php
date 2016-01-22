@@ -66,6 +66,7 @@ class UserController extends Controller {
         'end' => $request->date,
         'buy_now' => $request->buyout,
         'price' => $request->minprice,
+        'status' => 'Active',
         'style_id' => Style::Where('name', $request->style)->first()->id
     ]);
     $artwork = new Artwork([
@@ -75,9 +76,9 @@ class UserController extends Controller {
         'depth' => $request->depth,
         'condition' => $request->condition,
         'origin' => $request->origin,
-        'image' => $request->picture,
         'year' => $request->year
     ]);
+    $auction->save();
 
     $artwork->auction()->associate($auction);
     $artwork->save();
@@ -85,9 +86,10 @@ class UserController extends Controller {
     // Picture save
     $imageName = $artwork->id . '.' . 
         $request->file('picture')->getClientOriginalExtension();
+    $artwork->image = $imageName;
 
     $request->file('picture')->move(
-        base_path() . '/public/img/catalog/', $imageName
+        base_path() . '/public/img/', $imageName
     );
 
     $artist->artworks()->save($artwork);

@@ -27,7 +27,7 @@ class User extends Model implements AuthenticatableContract,
 
 	public function bidder()
 	{
-		return $this->belongsTo('App\Bidder');
+		return $this->hasMany('App\Bidder');
 	}
 
 	public function auctionsowner()

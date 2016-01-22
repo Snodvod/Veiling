@@ -31,7 +31,11 @@
 		<div class="bid">
 			<p>Highest bid:</p>
 			<h3>{{$auction->price}}</h3>
-			<p><a href="buy">Buy now for € {{$auction->buy_now}}</a></p>
+			<form action="buy" method="POST">
+				{{csrf_field()}}
+				<p><input type="submit" value="Buy now for € {{$auction->buy_now}}"></a></p>
+			</form>
+			
 			<p>Bids: {{count($auction->bidders)}}</p>
 			<div id="bluebid">
 				<form method="POST" action="/bid">

@@ -11,13 +11,12 @@
 |
 */
 
-Route::get('/', function()
-{
-	return view('index');
-});
-Route::get('home', function() {
-	return view('index');
-});
+Route::get('/', 'ArtController@indexpage');
+Route::get('/home', 'ArtController@indexpage');
+
+
+
+
 
 // Auction Routes
 
@@ -33,6 +32,10 @@ Route::get('art', 'ArtController@index');
 
 Route::get('art/sort/{param}', 'ArtController@index');
 Route::get('art/filter/{param1}/{param2}', 'ArtController@index');
+
+Route::post('search/{query}', 'ArtController@search');
+
+Route::post('art/{id}/buy', 'ArtController@buy');
 
 
 // Auth Routes
