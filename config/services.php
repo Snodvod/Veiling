@@ -38,7 +38,7 @@ return [
     'facebook' => [
         'client_id' => env('FACEBOOK_ID'),
         'client_secret' => env('FACEBOOK_SECRET'),
-        'redirect' => 'http://kunstveiling.nu/auth/facebook/callback',
+        'redirect' => env('FACEBOOK_REDIRECT'),
     ],
 
 ];

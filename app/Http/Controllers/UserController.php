@@ -111,14 +111,14 @@ class UserController extends Controller {
     
   }
 
-  public function contact(Request $request)
-  {
-    $user = User::findOrFail($request->user);
-    $sender = Auth::user();
-    Mail::send('emails.contact', ['sender' => $sender, 'user' => $user, 'message' = $request->message, 'auction' = $request->auction], function($m) use ($user) {
-        $m->from('info@landoretti', 'Landoretti');
-        $m->to($user->email, $user->name)->subject($request->subject);
-    });
+  // public function send(Request $request)
+  // {
+  //   $user = User::findOrFail($request->user);
+  //   $sender = Auth::user();
+  //   Mail::send('emails.contact', ['sender' => $sender, 'user' => $user, 'message' => $request->message, 'auction' => $request->auction], function($m) use ($user) {
+  //       $m->from('info@landoretti', 'Landoretti');
+  //       $m->to($user->email, $user->name)->subject($request->subject);
+  //   });
 
     
   }

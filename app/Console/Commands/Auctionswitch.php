@@ -51,7 +51,7 @@ class Auctionswitch extends Command
                         Mail::send('emails.sorrysold', ['user' => $user], function($m) use ($user) {
                                 $m->from('info@landoretti.com', 'Landoretti');
 
-                                $m->to($user->email, $user->name)->subject("Sorry, uw bieding is door iemand gekocht"):
+                                $m->to($user->email, $user->name)->subject("Sorry, uw bieding is door iemand gekocht");
                             });
                         foreach($auction->bidders as $bidder) {
                             if($bidder->price > $highest) {
@@ -63,10 +63,10 @@ class Auctionswitch extends Command
                             Mail::send('emails.won', ['user' => $winner], function($m) use ($user) {
                                 $m->from('info@landoretti.com', 'Landoretti');
 
-                                $m->to($user->email, $auction->auctionsbuyer->name)->subject("Proficiat u hebt een veiling gewonnen!"):
+                                $m->to($user->email, $auction->auctionsbuyer->name)->subject("Proficiat u hebt een veiling gewonnen!");
                             });
                         }
-                        
+
                     } else {
                         $this->info($auction->status);
 
@@ -74,8 +74,8 @@ class Auctionswitch extends Command
                             Mail::send('emails.expired', ['user' => $auction->auctionsowner], function($m) use ($user) {
                                 $m->from('info@landoretti.com', 'Landoretti');
 
-                                $m->to($user->email, $user->name)->subject("Uw bieding is verlopen zonder biedingen te ontvangen"):
-                            });     
+                                $m->to($user->email, $user->name)->subject("Uw bieding is verlopen zonder biedingen te ontvangen");
+                            });
                         $auction->save();
                     }
                 }

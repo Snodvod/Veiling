@@ -27,7 +27,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('auctions/store', 'UserController@store');
 	Route::post('bid', 'ArtController@bid');
 	Route::post('art/{id}/buy', 'ArtController@buy');
-	Route::post('/contact', 'UserController@contact');
+	Route::post('/contact', 'UserController@send');
 });
 
 Route::get('art/{id}', 'ArtController@show');
@@ -36,7 +36,7 @@ Route::get('art', 'ArtController@index');
 Route::get('art/sort/{param}', 'ArtController@index');
 Route::get('art/filter/{param1}/{param2}', 'ArtController@index');
 
-Route::post('search/{query}', 'ArtController@search');
+Route::post('/search', 'ArtController@search');
 
 
 

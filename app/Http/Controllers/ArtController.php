@@ -170,7 +170,7 @@ class ArtController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function search($query)
+    public function search(Request $request)
     {
         // $artist = Artist::whereHas('artworks', function($q) use ($query) {
         //     $q->where('name', 'like', '%'.$query.'%');

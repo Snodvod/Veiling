@@ -44,8 +44,11 @@
 				</form>
 			</div>
 			<div class="search col-lg-2 col-lg-offset-7 input-group">
-					<input type="text" class="form-control" placeholder="Search">
+				<form action="/search" mehthod="POST">
+					{!! csrf_field() !!}}
+					<input name="query" type="text" class="form-control" placeholder="Search">
 					<div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+				</form>
 				</div>
 		</div>
 		<div class="header-strip row">
